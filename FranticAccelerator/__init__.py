@@ -1,6 +1,5 @@
 """
-
-
+Frantic Accelerator uses jinja2 templates to make static html files.
 """
 
 import jinja2
@@ -8,12 +7,17 @@ import yaml
 
 from jinja2 import FileSystemLoader
 
-import fa_filters
+import FranticAccelerator.fa_filters
 
 class FaEnv(jinja2.Environment):
+    """
+    A frantic accelerator environment,
+    extend a jinja environment; adding some extra filters, a template loader
+    convenience function and a function that renders the yaml configuration.
+    """
     def __init__(self):
         super(FaEnv, self).__init__()
-        self.filters.update(fa_filters.filters())
+        self.filters.update(FranticAccelerator.fa_filters.filters())
 
     def make_template_loader(self, template_dir = '.'):
         """
@@ -43,8 +47,3 @@ class FaEnv(jinja2.Environment):
         outfile.write(self.template.render(data = self.config['data']))
         outfile.close()
 
-if __name__ == "__main__":
-    # testing
-    env = FaEnv()
-
-    print env.config
