@@ -30,13 +30,16 @@ class FaEnv(jinja2.Environment):
         self.config = yaml.safe_load(open(configfilename))
         self.template = self.get_template(self.config['template'])
 
+        if self.config['execute'] is not None:
+            # TODO, I still need to implement the execute section of the
+            # render process
+            print "Sorry, not implemented the execute bit yet."
+
         if self.config['output'] is None:
             outfilename = configfilename.replace('.yaml', '.html')
         else:
             outfilename = self.config['output']
-
         outfile = open(outfilename, "wb")
-
         outfile.write(self.template.render(data = self.config['data']))
         outfile.close()
 
