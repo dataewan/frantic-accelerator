@@ -38,3 +38,8 @@ nosetests.xml
 # vim swap files
 #
 *.swp
+
+
+# compiled html files and the python scripts in the docs directory
+docs/*html
+docs/*py
