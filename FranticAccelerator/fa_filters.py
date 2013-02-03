@@ -12,7 +12,7 @@ def do_rst(s):
     """
     This filter converts a rst string to html.
     """
-    output = Markup(publish_parts(source=s, writer_name = 'html'))['html_body']
+    output = Markup(publish_parts(source=s, writer_name = 'html')['html_body'])
     return output
 
 def do_readfile(s):
