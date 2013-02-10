@@ -15,6 +15,7 @@ setup(
         "jinja2",
         "markdown",
         "pyyaml",
-        "docutils"
+        "docutils",
+        "pygments"
     ]
 )
