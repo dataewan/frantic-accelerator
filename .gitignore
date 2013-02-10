@@ -43,3 +43,6 @@ nosetests.xml
 # compiled html files and the python scripts in the docs directory
 docs/*html
 docs/*py
+
+# Python package stuff
+MANIFEST
